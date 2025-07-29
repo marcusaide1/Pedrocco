@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedrocco Nigeria Limited - Quality Services</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #f5f5f5, #e8eaf6);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo-text h1 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            color: #e3f2fd;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #1976d2, #42a5f5, #90caf9);
+            color: white;
+        }
+
+        .hero-content {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: #1976d2;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #1976d2;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #1976d2, #42a5f5);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .ceo-section {
+            background: linear-gradient(135deg, #f5f5f5, #e3f2fd);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .ceo-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .ceo-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .ceo-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .ceo-text h3 {
+            color: #1976d2;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .ceo-text h4 {
+            color: #42a5f5;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .ceo-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #e3f2fd, #f5f5f5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #1976d2;
+        }
+
+        .service-icon {
+            font-size: 60px;
+            color: #1976d2;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 20px;
+            color: #1976d2;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Video Section */
+        .video-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f5f5, #e3f2fd);
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #e3f2fd, #f5f5f5);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1976d2;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1976d2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            padding: 60px 0 30px;
+            color: white;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            color: #90caf9;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #e3f2fd;
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #e3f2fd;
+            font-size: 24px;
+            transition: all 0.3s;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            color: #90caf9;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content,
+            .ceo-content {
+                flex-direction: column;
+            }
+
+            .about-text,
+            .about-image,
+            .ceo-text,
+            .ceo-image {
+                padding: 20px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="https://via.placeholder.com/70x70/1976d2/ffffff?text=PNL" alt="Pedrocco Nigeria Limited Logo" />
+                    <div class="logo-text">
+                        <h1>PEDROCCO NIGERIA LIMITED</h1>
+                        <p>(Management Consultants & Trainers)</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h1>Leading Management Consultants and Trainer</h1>
+                <p>
+                    Pedrocco is a dynamic management consultancy and training firm dedicated to unlocking organizational potential. We partner with businesses across industries to navigate complexity, optimize performance, and cultivate future-ready leaders. Our integrated approach combines cutting-edge management consultancy with tailored training solutions, driving measurable growth and sustainable success.
+                </p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Company</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Pedrocco Nigeria Limited was established in 2014 with a vision
+                        to provide top-quality engineering and construction services
+                        to Nigeria's growing industrial sector.
+                    </p>
+                    <p>
+                        With over 25 years of experience, we have built a reputation
+                        for reliability, innovation, and excellence in project
+                        execution. Our team of highly skilled professionals is
+                        dedicated to delivering solutions that meet international
+                        standards while adapting to local needs.
+                    </p>
+                    <p>
+                        We specialize in mechanical and electrical installations,
+                        civil construction, maintenance services, and industrial
+                        equipment supply across various sectors including oil & gas,
+                        manufacturing, and power generation.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x400/1976d2/ffffff?text=Our+Team" alt="Pedrocco Nigeria Limited Team" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="ceo-section">
+        <div class="container">
+            <div class="ceo-content">
+                <div class="ceo-image">
+                    <img src="https://via.placeholder.com/400x500/1976d2/ffffff?text=CEO" alt="CEO of Pedrocco Nigeria Limited" />
+                </div>
+                <div class="ceo-text">
+                    <h3>Meet Our CEO</h3>
+                    <h4>Engr. Marcualy Udgebe</h4>
+                    <p>
+                        With over 30 years of experience in industrial engineering and project management, 
+                        Engr. Michael Pedrocco leads our company with vision and expertise. His commitment 
+                        to quality and innovation has been the driving force behind our success.
+                    </p>
+                    <p>
+                        Under his leadership, Pedrocco Nigeria Limited has successfully completed 
+                        over 500 major projects across Nigeria, establishing ourselves as a trusted 
+                        partner in industrial development and infrastructure projects.
+                    </p>
+                    <p>
+                        "Our mission is to deliver excellence in every project while contributing 
+                        to Nigeria's industrial, human capital growth and development." - Engr. Michael Pedrocco
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>Human Capital Outsourcing</h3>
+                    <p>
+We provide our clients with human capital that possess the skills and experience to man posts that are not in their core-business relevant for them to add value to our clients business.
+Human Capital Organization
+We help company’s set up functional human resources unit, plan their organizational structure, develop job descriptions and implement best human resources practices.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Staff Training and Development</h3>
+                    <p>
+To drive organizational growth and performance in Nigeria, a structured Staff Training Needs Assessment is essential. This process precisely identifies skill gaps and defines targeted training objectives that support our strategic vision. Through active stakeholder engagement and varied assessment methods, we uncover valuable insights into existing strengths and areas needing improvement. Emphasizing digital tools and adaptability, our training programs are designed to respond dynamically to market shifts. We are committed to demonstrating how this tailored strategy will transform our workforce and boost productivity
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Business Strategy</h3>
+                    <p>
+Our Business strategy is the deliberate roadmap that aligns an organization's resources and capabilities to achieve sustainable competitive advantage and long-term goals. It involves clear choices about where to compete (markets, customers) and how to win (unique value proposition, cost leadership, innovation). Effective strategy requires rigorous market analysis, focused resource allocation, agile execution, and constant adaptation to risks and opportunities. Ultimately, it transforms vision into actionable priorities that drive growth, resilience, and outperformance in a dynamic marketplace.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Sustainability Reporting</h3>
+                    <p>
+Sustainability Reporting is increasingly vital for Nigerian businesses, enhancing transparency and building stakeholder trust. As its strategic value becomes clearer, voluntary reporting is rising. Adherence to local standards, such as those from the Financial Reporting Council of Nigeria (FRCN), strengthens reputation. By leveraging global frameworks like GRI and SASB, companies effectively communicate their ESG performance. This practice drives competitive differentiation and ensures readiness for evolving regulations, marking a significant step in Nigeria's corporate evolution.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Project Management</h3>
+                    <p>
+At Pedrocco Consulting, we empower projects across Nigeria’s complex landscape. Our structured approach guarantees timely, cost-effective delivery and deep stakeholder collaboration. Facing funding constraints or regulatory complexities? We design custom strategies that build capacity, streamline communication, and mitigate risks. Partner with us to experience how strategic project management drives tangible results and fosters lasting partnerships. Let’s achieve your goals together—explore our Nigeria-specific solutions today
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Management Consulting</h3>
+                    <p>
+                        Strategic business consulting, organizational development,
+                        and process optimization for improved efficiency and growth.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Business Strategy</h3>
+                    <p>
+                        Strategic planning, market analysis, and business
+                        development services to drive organizational success.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Performance Management</h3>
+                    <p>
+                        KPI development, performance monitoring, and improvement
+                        systems to enhance organizational effectiveness.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Quality Assurance</h3>
+                    <p>
+                        Quality management systems, audits, and compliance
+                        services to ensure operational excellence and standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Work in Action</h2>
+            </div>
+            <div class="video-container">
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/example"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Gallery</h2>
+            </div>
+                        <div class="gallery">
+              <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/1976d2/ffffff?text=Project+1" alt="Project 1" />
+              </div>
+              <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/42a5f5/ffffff?text=Project+2" alt="Project 2" />
+              </div>
+              <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/90caf9/ffffff?text=Project+3" alt="Project 3" />
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>
+                        Pedrocco Nigeria Limited is a leading management and consultancy firm committed to delivering quality services
+                        across various industries.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>4 Jimmy Evbomwan street, Awoyaya, Lagos</p>
+                    <p>Nigeria</p>
+                    <p>Phone: +234 812 345 6789</p>
+                    <p>Email: info@pedroccong.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><span>📘</span></a>
+                <a href="#"><span>🐦</span></a>
+                <a href="#"><span>💼</span></a>
+                <a href="#"><span>📷</span></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Pedrocco Nigeria Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
